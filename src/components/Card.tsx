@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import TinderCard, { Direction } from "react-tinder-card";
 
 const db = [

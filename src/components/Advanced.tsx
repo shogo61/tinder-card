@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, ComponentProps } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import TinderCard, { Direction } from "react-tinder-card";
 import styles from "./card.module.scss";
 
@@ -14,7 +14,7 @@ function Advanced() {
     () =>
       Array(db.length)
         .fill(0)
-        .map((i) => React.createRef()),
+        .map(() => React.createRef()),
     []
   );
 
@@ -30,7 +30,7 @@ function Advanced() {
   // set last direction and decrease current index
   const swiped = (
     direction: Direction,
-    nameToDelete: string,
+    // nameToDelete: string,
     index: number
   ) => {
     setLastDirection(direction);
@@ -71,7 +71,7 @@ function Advanced() {
             ref={childRefs[idx]}
             className="swipe"
             key={db[idx]}
-            onSwipe={(dir) => swiped(dir, db[idx], idx)}
+            onSwipe={(dir) => swiped(dir, idx)}
             onCardLeftScreen={() => outOfFrame(db[idx], idx)}
           >
             <div className={`${styles.card} ${styles["book-" + (idx + 1)]}`}>
@@ -82,19 +82,19 @@ function Advanced() {
       </div>
       <div className="buttons">
         <button
-          style={{ backgroundColor: canSwipe ? "#c3c4d3" : undefined }}
+          style={{ backgroundColor: !canSwipe ? "#c3c4d3" : undefined }}
           onClick={() => swipe("left")}
         >
           Swipe left!
         </button>
         <button
-          style={{ backgroundColor: canGoBack ? "#c3c4d3" : undefined }}
+          style={{ backgroundColor: !canGoBack ? "#c3c4d3" : undefined }}
           onClick={() => goBack()}
         >
           Undo swipe!
         </button>
         <button
-          style={{ backgroundColor: canSwipe ? "#c3c4d3" : undefined }}
+          style={{ backgroundColor: !canSwipe ? "#c3c4d3" : undefined }}
           onClick={() => swipe("right")}
         >
           Swipe right!
