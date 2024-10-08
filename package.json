@@ -8,13 +8,14 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "vite build && cp -r dist docs",
-    "rebuild": "vite build && rm -R docs && cp -r dist docs",
-    "git": "git add . && git commit && git push origin main"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
     "react-tinder-card": "^1.6.4"
   },
   "devDependencies": {
