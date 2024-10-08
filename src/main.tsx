@@ -6,8 +6,8 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Router basename="tinder-card">
-      <App />
-    </Router>
+    {/* <Router basename="tinder-card"> */}
+    <App />
+    {/* </Router>s */}
   </StrictMode>
 );
