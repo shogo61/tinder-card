@@ -6,12 +6,10 @@
   "homepage": "https://shogo61.github.io/tinder-card/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "build": "vite build && cp -r dist docs",
+    "rebuild": "vite build && rm -R docs && cp -r dist docs",
+    "git": "git add . && git commit && git push origin main"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.4",
