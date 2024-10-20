@@ -1,9 +1,9 @@
 import "./App.css";
+import Home from "./components/Home";
 
-import Advanced from "./components/Advanced";
 const App = () => (
   <div className="app">
-    <Advanced />
+    <Home />
     <div className="row">
       <p style={{ color: "#fff" }}>Show advanced example</p>{" "}
     </div>
